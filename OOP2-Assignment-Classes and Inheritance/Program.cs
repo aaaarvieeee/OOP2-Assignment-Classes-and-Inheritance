@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,18 +10,13 @@ namespace OOP2_Assignment_Classes_and_Inheritance
 {
     internal class Program
     {
+        public List<Appliance> appliances = new List<Appliance>();
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Modern Appliances!\r\nHow may we assist you?\r\n1 – Check out appliance\r\n2 – Find appliances by brand\r\n3 – Display appliances by type\r\n4 – Produce random appliance list\r\n5 – Save & exit\r\nEnter option:");
+            string var = Console.ReadLine();
+            Console.ReadKey();
         }
-        static void ReadFromFile()
-        {
-            string path = "C:\\Users\\death\\source\\repos\\OOP2-Assignment-Classes and Inheritance\\OOP2-Assignment-Classes and Inheritance\\appliances.txt";
-            string[] lines = File.ReadAllLines(path);
-            foreach (string line in lines)
-            {
-                string[] fields = line.Split(';');
-                Console.WriteLine(fields[0]);   
-            }
-        }
+        
     }
 }
