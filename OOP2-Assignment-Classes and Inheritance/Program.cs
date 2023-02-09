@@ -12,9 +12,5 @@ namespace OOP2_Assignment_Classes_and_Inheritance
     {
         public List<Appliance> appliances = new List<Appliance>();
         static void Main(string[] args)
-        {
-
-        }
-        
     }
 }
