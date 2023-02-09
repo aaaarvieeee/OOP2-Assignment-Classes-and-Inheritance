@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Appliance.cs" />
     <Compile Include="Dishwasher.cs" />
+    <Compile Include="Management.cs" />
     <Compile Include="Microwave.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appliances.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
