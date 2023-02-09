@@ -19,6 +19,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             foreach (string line in lines)
             {
                 string[] fields = line.Split(';');
+                Console.WriteLine(fields[0]);   
             }
         }
     }
