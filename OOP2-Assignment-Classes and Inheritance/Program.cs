@@ -11,5 +11,9 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         static void Main(string[] args)
         {
         }
+        static void ReadFromFile()
+        {
+
+        }
     }
 }
