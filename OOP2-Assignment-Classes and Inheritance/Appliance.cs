@@ -8,6 +8,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
 {
     internal class Appliance
     {
+
         public int ItemNumber { get; set; }
         public string Brand { get; set; }
         public int Quantity { get; set; }
@@ -60,7 +61,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
 
                 else if(brandtype != y.Brand)
                 {
-                    Console.WriteLine("This brand does not exist for this product")
+                    Console.WriteLine("This brand does not exist for this product");
                 }
             }
  
@@ -70,16 +71,30 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         {
             Console.WriteLine("1- Refrigerators\r\n2-Vacuums\r\n3-Microwaves\r\n4-Dishwashers\r\nEnter type of appliances\r\n");
             string var = Console.ReadLine();
-            if(var == 1)
+            if(var == "1")
             {
                 foreach(Refrigerators a in appliances)
                 {
                     Console.WriteLine(a);
                 }
             }
-            else if (var == 2)
+            else if (var == "2")
             {
                 foreach (Vacuum b in appliances)
+                {
+                    Console.WriteLine(b);
+                }
+            }
+            else if (var == "3")
+            {
+                foreach (Microwave b in appliances)
+                {
+                    Console.WriteLine(b);
+                }
+            }
+            else if (var == "4")
+            {
+                foreach (Microwave b in appliances)
                 {
                     Console.WriteLine(b);
                 }
