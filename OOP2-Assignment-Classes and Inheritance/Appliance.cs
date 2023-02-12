@@ -8,7 +8,6 @@ namespace OOP2_Assignment_Classes_and_Inheritance
 {
     internal class Appliance
     {
-
         public int ItemNumber { get; set; }
         public string Brand { get; set; }
         public int Quantity { get; set; }

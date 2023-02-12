@@ -14,7 +14,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
 
         public Refrigerator(int itemnumber, string brand, int quantity, double wattage, string color, double price, int numberofdoors, double height, double width) : base(itemnumber, brand, quantity, wattage, color, price)
         {
-            this.NumberOfDoors = itemnumber;
+            this.NumberOfDoors = numberofdoors;
             this.Height = height;
             this.Width = width;
         }
