@@ -16,7 +16,9 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             this.Grade = grade;
             this.Battery = battery;
         }
-
-
+        public override string ToString()
+        {
+            return base.ToString() + $"Grade: {Grade}\nBattery: {Battery}\n";
+        }
     }
 }

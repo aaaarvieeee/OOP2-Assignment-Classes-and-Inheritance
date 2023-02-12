@@ -24,5 +24,14 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             this.Color = color;
             this.Price = price;
         }
+
+        public bool isAvailable()
+        {
+            return true;
+        }
+        public override string ToString()
+        {
+            return $"Item Number {ItemNumber}\nBrand: {Brand}\nQuantity: {Quantity}\nWattage: {Wattage}\nColor: {Color}\nPrice: {Price}\n";
+        }
     }
 }

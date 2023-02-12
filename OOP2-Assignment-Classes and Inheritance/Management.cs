@@ -14,7 +14,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         public static List<Appliance> applianceList = new List<Appliance>();
         public static void ReadFromFile()
         {
-            string path = "C://Users//soria//OneDrive//Documents//OOP2//Assignment_1//appliances.txt";
+            string path = "C:\\Users\\death\\Source\\Repos\\OOP2-Assignment-Classes-and-Inheritance\\OOP2-Assignment-Classes and Inheritance\\appliances.txt";
             string[] lines = File.ReadAllLines(path);
             foreach (string line in lines)
             {

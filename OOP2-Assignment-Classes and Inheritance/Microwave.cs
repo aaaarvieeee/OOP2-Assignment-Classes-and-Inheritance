@@ -16,5 +16,9 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             this.Capacity = capacity;
             this.RoomType = roomtype;
         }
+        public override string ToString()
+        {
+            return base.ToString() + $"Capacity: {Capacity}\nRoom Type: {RoomType}\n";
+        }
     }
 }
