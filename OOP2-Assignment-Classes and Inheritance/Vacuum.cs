@@ -8,13 +8,15 @@ namespace OOP2_Assignment_Classes_and_Inheritance
 {
     internal class Vacuum : Appliance 
     {
-        public int Grade { get; set; }
+        public string Grade { get; set; }
         public int Battery { get; set; }
 
-        public Vacuum(int itemnumber, string brand, int quantity, double wattage, string color, double price, int grade, int battery) : base(itemnumber, brand, quantity, wattage, color, price)
+        public Vacuum(int itemnumber, string brand, int quantity, double wattage, string color, double price, string grade, int battery) : base(itemnumber, brand, quantity, wattage, color, price)
         {
             this.Grade = grade;
             this.Battery = battery;
         }
+
+
     }
 }

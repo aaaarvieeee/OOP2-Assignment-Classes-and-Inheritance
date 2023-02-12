@@ -9,9 +9,9 @@ namespace OOP2_Assignment_Classes_and_Inheritance
     internal class Dishwasher : Appliance
     {
         public string Feature { get; set; }
-        public double SoundRating { get; set; }
+        public string SoundRating { get; set; }
 
-        public Dishwasher(int itemnumber, string brand, int quantity, double wattage, string color, double price, string feature, double soundrating) : base(itemnumber, brand, quantity, wattage, color, price)
+        public Dishwasher(int itemnumber, string brand, int quantity, double wattage, string color, double price, string feature, string soundrating) : base(itemnumber, brand, quantity, wattage, color, price)
         { 
             this.Feature= feature;
             this.SoundRating= soundrating;
