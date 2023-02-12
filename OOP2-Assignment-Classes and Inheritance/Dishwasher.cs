@@ -13,8 +13,8 @@ namespace OOP2_Assignment_Classes_and_Inheritance
 
         public Dishwasher(int itemnumber, string brand, int quantity, double wattage, string color, double price, string feature, string soundrating) : base(itemnumber, brand, quantity, wattage, color, price)
         { 
-            this.Feature= feature;
-            this.SoundRating= soundrating;
+            Feature = feature;
+            SoundRating = soundrating;
         }
         public override string ToString()
         {

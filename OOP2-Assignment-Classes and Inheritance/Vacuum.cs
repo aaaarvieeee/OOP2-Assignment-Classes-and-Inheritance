@@ -13,8 +13,8 @@ namespace OOP2_Assignment_Classes_and_Inheritance
 
         public Vacuum(int itemnumber, string brand, int quantity, double wattage, string color, double price, string grade, int battery) : base(itemnumber, brand, quantity, wattage, color, price)
         {
-            this.Grade = grade;
-            this.Battery = battery;
+            Grade = grade;
+            Battery = battery;
         }
         public override string ToString()
         {

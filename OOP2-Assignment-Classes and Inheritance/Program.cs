@@ -17,7 +17,19 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             string var = Console.ReadLine();
             if (var == "1")
             {
-                Management.allitem();
+                Management.Purchase();
+            }
+            else if (var == "2")
+            {
+                Management.EnterBrand();
+            }
+            else if (var == "3")
+            {
+                Management.DisplayByType();
+            }
+            else if (var == "4")
+            {
+                Management.RandomApplianceList();
             }
             Console.ReadKey();
         }
