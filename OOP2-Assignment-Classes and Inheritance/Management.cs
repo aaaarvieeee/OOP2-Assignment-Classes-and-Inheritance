@@ -59,7 +59,6 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         {
             Console.WriteLine("Enter the item number of an appliance:");
             string itemnumUserInput = Console.ReadLine();
-            int itemnum = int.Parse(itemnumUserInput);
             foreach (Appliance app in applianceList)
             {
                 if (itemnumUserInput.Contains(Convert.ToString(app.ItemNumber)))
