@@ -59,19 +59,22 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         {
             Console.WriteLine("Enter the item number of an appliance:");
             string itemnumUserInput = Console.ReadLine();
+            List<int> items = new List<int>();
             foreach (Appliance app in applianceList)
             {
-                if (itemnumUserInput.Contains(Convert.ToString(app.ItemNumber)))
-                {
-                    if (app.isAvailable() == true)
+                items.Add(app.ItemNumber);
+            }
+            if (itemnumUserInput.Contains(Convert.ToString(items)))
+            {
+                foreach (Appliance app in applianceList)
+                if (app.isAvailable() == true)
                     {
                         app.Checkout();
                     }
-                }
-                else
-                {
-                    Console.WriteLine("No appliances found with that item number");
-                }
+            }
+            else
+            {
+                Console.WriteLine("No appliances found with that item number");
             }
         }
 
