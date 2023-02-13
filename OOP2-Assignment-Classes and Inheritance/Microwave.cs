@@ -16,6 +16,10 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             Capacity = capacity;
             RoomType = roomtype;
         }
+        public override string formatForFile()
+        {
+            return base.formatForFile() + $";{Capacity};{RoomType};";
+        }
         public override string ToString()
         {
             return base.ToString() + $"Capacity: {Capacity}\nRoom Type: {RoomType}\n";

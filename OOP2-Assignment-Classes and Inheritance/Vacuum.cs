@@ -16,6 +16,10 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             Grade = grade;
             Battery = battery;
         }
+        public override string formatForFile()
+        {
+            return base.formatForFile() + $";{Grade};{Battery};";
+        }
         public override string ToString()
         {
             return base.ToString() + $"Grade: {Grade}\nBattery: {Battery}\n";

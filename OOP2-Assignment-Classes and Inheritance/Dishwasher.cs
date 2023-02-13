@@ -16,6 +16,10 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             Feature = feature;
             SoundRating = soundrating;
         }
+        public override string formatForFile()
+        {
+            return base.formatForFile() + $";{Feature};{SoundRating};";
+        }
         public override string ToString()
         {
             return base.ToString() + $"Feature: {Feature}\nSound Rating: {SoundRating}\n";

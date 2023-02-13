@@ -58,20 +58,21 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         public static void Purchase()
         {
             Console.WriteLine("Enter the item number of an appliance:");
-            string itemnum = Console.ReadLine();
-            int itemnum1 = int.Parse(itemnum);
-            List<int> items = new List<int>();
-            foreach (Appliance x in applianceList)
+            string itemnumUserInput = Console.ReadLine();
+            int itemnum = int.Parse(itemnumUserInput);
+            foreach (Appliance app in applianceList)
             {
-                items.Add(x.ItemNumber);
-            }
-            if (items.Contains(itemnum1))
-            {
-                Console.WriteLine("Appliance {0} has been checked out.", itemnum1);
-            }
-            else
-            {
-                Console.WriteLine("The appliance is not available to be checked out.");
+                if (itemnumUserInput.Contains(Convert.ToString(app.ItemNumber)))
+                {
+                    if (app.isAvailable() == true)
+                    {
+                        app.Checkout();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No appliances found with that item number");
+                }
             }
         }
 
@@ -82,7 +83,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             Console.WriteLine("Matching Appliances:");
             foreach (Appliance app in applianceList)
             {
-                if (brandtype == app.Brand)
+                if (app.Brand.IndexOf(brandtype, StringComparison.OrdinalIgnoreCase) >= 0)
                 {
                     if (app is Refrigerator)
                     {
@@ -189,11 +190,45 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             Console.WriteLine("Enter number of appliances:");
             string numberOfApplianceUserInput = Console.ReadLine();
             int numberOfAppliances = int.Parse(numberOfApplianceUserInput);
+            Random rand = new Random();
             Console.WriteLine("Random appliances:");
             for (int i = 0; i < numberOfAppliances; i++) 
             {
-                Console.WriteLine();
+                int randomIndex = rand.Next(applianceList.Count);
+                Console.WriteLine(applianceList[randomIndex]);
             }
+        }
+
+        public static void WriteFormattedObjectsIntoTextFile()
+        {
+            List<string> stringApplianceList = new List<string>();
+            foreach(Appliance app in applianceList)
+            {
+                if (app is Refrigerator)
+                {
+                    Refrigerator fridge = (Refrigerator)app;
+                    stringApplianceList.Add(fridge.formatForFile());
+                }
+                else if (app is Microwave)
+                {
+                    Microwave micro = (Microwave)app;
+                    stringApplianceList.Add(micro.formatForFile());
+
+
+                }
+                else if (app is Vacuum)
+                {
+                    Vacuum vac = (Vacuum)app;
+                    stringApplianceList.Add(vac.formatForFile());
+
+                }
+                else if (app is Dishwasher)
+                {
+                    Dishwasher dish = (Dishwasher)app;
+                    stringApplianceList.Add(dish.formatForFile());
+                }
+            }
+            File.WriteAllLines("C:\\Users\\death\\source\\repos\\OOP2-Assignment-Classes-and-Inheritance\\OOP2-Assignment-Classes and Inheritance\\appliances.txt", stringApplianceList);
         }
     }
 }

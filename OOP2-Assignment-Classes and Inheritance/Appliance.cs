@@ -29,14 +29,24 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         {
             if (Quantity > 0)
             {
-                int newQuantity = Quantity - 1; 
                 return true;
             }
-            else 
+            else
             {
                 Console.WriteLine("The appliance is not available to be checked out.");
                 return false; 
             }
+        }
+        public void Checkout()
+        {
+            int newQuantity = Quantity - 1;
+            Quantity = newQuantity;
+            Console.WriteLine($"Appliance \"{ItemNumber}\" has been checked out.");
+        }
+
+        public virtual string formatForFile()
+        {
+            return $"{ItemNumber};{Brand};{Quantity};{Wattage};{Color};{Price}";
         }
         public override string ToString()
         {
