@@ -18,6 +18,10 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             this.Height = height;
             this.Width = width;
         }
+        public override string formatForFile()
+        {
+            return base.formatForFile() + $";{NumberOfDoors};{Height};{Width};";
+        }
         public override string ToString()
         {
             return base.ToString() + $"Number of Doors: {NumberOfDoors}\nHeight: {Height}\nWidth: {Width}\n";

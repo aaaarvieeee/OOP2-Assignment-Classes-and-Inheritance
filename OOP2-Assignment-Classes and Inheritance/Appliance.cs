@@ -17,17 +17,36 @@ namespace OOP2_Assignment_Classes_and_Inheritance
 
         public Appliance(int itemnumber, string brand, int quantity, double wattage, string color, double price)
         {
-            this.ItemNumber = itemnumber;
-            this.Brand = brand;
-            this.Quantity = quantity;
-            this.Wattage = wattage;
-            this.Color = color;
-            this.Price = price;
+            ItemNumber = itemnumber;
+            Brand = brand;
+            Quantity = quantity;
+            Wattage = wattage;
+            Color = color;
+            Price = price;
         }
 
         public bool isAvailable()
         {
-            return true;
+            if (Quantity > 0)
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("The appliance is not available to be checked out.");
+                return false; 
+            }
+        }
+        public void Checkout()
+        {
+            int newQuantity = Quantity - 1;
+            Quantity = newQuantity;
+            Console.WriteLine($"Appliance \"{ItemNumber}\" has been checked out.");
+        }
+
+        public virtual string formatForFile()
+        {
+            return $"{ItemNumber};{Brand};{Quantity};{Wattage};{Color};{Price}";
         }
         public override string ToString()
         {
