@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,7 +56,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             }
         }
 
-        public virtual void Purchase()
+        public void Purchase()
         {
             Console.WriteLine("Enter the item number of an appliance:");
             string itemnum = Console.ReadLine();
@@ -68,25 +69,29 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             if (items.Contains(itemnum1))
             {
                 Console.WriteLine("Appliance {0} has been checked out.", itemnum1);
+                return;
+
             }
             else
             {
                 Console.WriteLine("The appliance is not available to be checked out.");
+                return;
             }
+            
         }
 
         public void EnterBrand()
         {
             Console.WriteLine("Enter brand to search for: ");
             string brandtype = Console.ReadLine();
-            List<Appliance> brandy = new List<Appliance>();
             Console.WriteLine("Matching Appliances:");
             foreach (Appliance y in applianceList)
             {
+                List<Appliance> brandy = new List<Appliance>();
                 if (brandtype == y.Brand)
                 {
                     brandy.Add(y);
-                    foreach(Appliance z in brandy)
+                    foreach (Appliance z in brandy)
                     {
                         if (z is Refrigerator)
                         {
@@ -101,21 +106,21 @@ namespace OOP2_Assignment_Classes_and_Inheritance
                         else if (z is Vacuum)
                         {
                             Vacuum vac = (Vacuum)z;
-                            Console.WriteLine("ItemNumber: {0}\n Brand: {1}\n Quantity: {2}\n Wattage: {3}\n Color: {4}\n Price: {5}\n Grade: {6}\n BatteryType: {7} ", vac.ItemNumber, vac.Brand, vac.Quantity, vac.Wattage, vac.Color, vac.Color, vac.Price, vac.Grade, vac.Battery);
+                            Console.WriteLine("ItemNumber: {0}\n Brand: {1}\n Quantity: {2}\n Wattage: {3}\n Color: {4}\n Price: {5}\n Grade: {6}\n BatteryType: {7} ", vac.ItemNumber, vac.Brand, vac.Quantity, vac.Wattage, vac.Color, vac.Price, vac.Grade, vac.Battery);
                         }
                         else if (z is Dishwasher)
                         {
                             Dishwasher dish = (Dishwasher)z;
-                            Console.WriteLine("ItemNumber: {0}\n Brand: {1}\n Quantity: {2}\n Wattage: {3}\n Color: {4}\n Price: {5}\n Grade: {6}\n BatteryType: {7} ", dish.ItemNumber, dish.Brand, dish.Quantity, dish.Wattage, dish.Color, dish.Color, dish.Price, dish.Feature, dish.SoundRating);
+                            Console.WriteLine("ItemNumber: {0}\n Brand: {1}\n Quantity: {2}\n Wattage: {3}\n Color: {4}\n Price: {5}\n Grade: {6}\n BatteryType: {7} ", dish.ItemNumber, dish.Brand, dish.Quantity, dish.Wattage, dish.Color, dish.Price, dish.Feature, dish.SoundRating);
                         }
-
                     }
                 }
             }
+            
 
         }
 
-        public void allitem()
+       public void allitem()
         {
             Console.WriteLine("1- Refrigerators\r\n2-Vacuums\r\n3-Microwaves\r\n4-Dishwashers\r\nEnter type of appliances\r\n");
             string var = Console.ReadLine();
@@ -124,13 +129,13 @@ namespace OOP2_Assignment_Classes_and_Inheritance
                 Console.WriteLine("Enter number of doors: 2 (double door), 3 (three doors) or 4 (four doors):");
                 string door = Console.ReadLine();
                 int door1 = int.Parse(door);
+                Console.WriteLine("Matching regrigerators: ");
                 foreach (Appliance x in applianceList)
                 {
                     if(x is Refrigerator)
                     {
                         Refrigerator fridge = (Refrigerator)x;
                         List<Refrigerator> list1 = new List<Refrigerator>();
-                        Console.WriteLine("Matching regrigerators: ");
                         if (door1 == fridge.NumberOfDoors)
                         {
                             list1.Add(fridge);
@@ -208,11 +213,9 @@ namespace OOP2_Assignment_Classes_and_Inheritance
                         }
                     }
                 }
-
             }
-
-
         }
+
 
 
     }
