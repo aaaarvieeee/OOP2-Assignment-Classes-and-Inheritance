@@ -33,7 +33,6 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             }
             else
             {
-                Console.WriteLine("The appliance is not available to be checked out.");
                 return false; 
             }
         }

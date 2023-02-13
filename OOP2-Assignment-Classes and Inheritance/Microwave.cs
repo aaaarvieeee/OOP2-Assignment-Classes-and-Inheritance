@@ -22,6 +22,14 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         }
         public override string ToString()
         {
+            if (RoomType == "K")
+            {
+                RoomType = "Kitchen";
+            }
+            else
+            {
+                RoomType = "Work Site";
+            }
             return base.ToString() + $"Capacity: {Capacity}\nRoom Type: {RoomType}\n";
         }
     }

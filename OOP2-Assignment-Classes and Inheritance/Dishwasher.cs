@@ -15,6 +15,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         { 
             Feature = feature;
             SoundRating = soundrating;
+
         }
         public override string formatForFile()
         {
@@ -22,6 +23,22 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         }
         public override string ToString()
         {
+            if (SoundRating == "Qt")
+            {
+                SoundRating = "Quietest";
+            }
+            else if (SoundRating == "Qr")
+            {
+                SoundRating = "Quieter";
+            }
+            else if (SoundRating == "Qu")
+            {
+                SoundRating = "Quiet";
+            }
+            else
+            {
+                SoundRating = "Moderate";
+            }
             return base.ToString() + $"Feature: {Feature}\nSound Rating: {SoundRating}\n";
         }
 
