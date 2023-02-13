@@ -22,7 +22,16 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         }
         public override string ToString()
         {
-            return base.ToString() + $"Grade: {Grade}\nBattery: {Battery}\n";
+            if (Battery == 18)
+            {
+                string lowVoltage = "Low";
+                return base.ToString() + $"Grade: {Grade}\nBattery: {lowVoltage}\n";
+            }
+            else
+            {
+                string highVoltage = "High";
+                return base.ToString() + $"Grade: {Grade}\nBattery: {highVoltage}\n";
+            }
         }
     }
 }

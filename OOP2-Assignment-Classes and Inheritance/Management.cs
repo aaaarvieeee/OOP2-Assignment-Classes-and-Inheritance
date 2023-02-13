@@ -59,22 +59,22 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         {
             Console.WriteLine("Enter the item number of an appliance:");
             string itemnumUserInput = Console.ReadLine();
-            List<int> items = new List<int>();
+            List<string> inputCheck = new List<string>();
             foreach (Appliance app in applianceList)
             {
-                items.Add(app.ItemNumber);
+                inputCheck.Add(Convert.ToString(app.ItemNumber));
+                if (app.isAvailable() == true && itemnumUserInput.Contains(Convert.ToString(app.ItemNumber)))
+                {
+                    app.Checkout();
+                }
+                else if (app.isAvailable() == false && itemnumUserInput.Contains(Convert.ToString(app.ItemNumber)))
+                {
+                    Console.WriteLine("The appliance is not available to be checked out.");
+                }
             }
-            if (itemnumUserInput.Contains(Convert.ToString(items)))
+            if (!inputCheck.Contains(itemnumUserInput))
             {
-                foreach (Appliance app in applianceList)
-                if (app.isAvailable() == true)
-                    {
-                        app.Checkout();
-                    }
-            }
-            else
-            {
-                Console.WriteLine("No appliances found with that item number");
+                Console.WriteLine("No appliances found with that item number.");
             }
         }
 
@@ -113,14 +113,14 @@ namespace OOP2_Assignment_Classes_and_Inheritance
 
         public static void DisplayByType()
         {
-            Console.WriteLine("1- Refrigerators\r\n2-Vacuums\r\n3-Microwaves\r\n4-Dishwashers\r\nEnter type of appliances\r\n");
+            Console.WriteLine("1- Refrigerators\r\n2-Vacuums\r\n3-Microwaves\r\n4-Dishwashers\r\nEnter type of appliance:\r\n");
             string var = Console.ReadLine();
             if (var == "1")
             {
                 Console.WriteLine("Enter number of doors: 2 (double door), 3 (three doors) or 4 (four doors):");
                 string door = Console.ReadLine();
                 int door1 = int.Parse(door);
-                Console.WriteLine("Matching regrigerators: ");
+                Console.WriteLine("Matching refrigerators: ");
                 foreach (Appliance x in applianceList)
                 {
                     if(x is Refrigerator)
@@ -153,7 +153,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             }
             else if (var == "3")
             {
-                Console.WriteLine("RoomWhere the microwave will be installed: K (kitchen) or W (work site):");
+                Console.WriteLine("Room Where the microwave will be installed: K (kitchen) or W (work site):");
                 string micro = Console.ReadLine();
                 Console.WriteLine("Matching microwave:");
                 foreach (Appliance c in applianceList)
