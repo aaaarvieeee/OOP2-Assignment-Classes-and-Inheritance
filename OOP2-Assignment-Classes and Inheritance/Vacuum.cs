@@ -27,12 +27,12 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             if (Battery == 18)
             {
                 string lowVoltage = "Low";
-                return base.ToString() + $"Grade: {Grade}\nBattery: {lowVoltage}\n";
+                return base.ToString() + $"Grade: {Grade}\nBattery Voltage: {lowVoltage}\n";
             }
             else
             {
                 string highVoltage = "High";
-                return base.ToString() + $"Grade: {Grade}\nBattery: {highVoltage}\n";
+                return base.ToString() + $"Grade: {Grade}\nBattery Voltage: {highVoltage}\n";
             }
         }
     }
