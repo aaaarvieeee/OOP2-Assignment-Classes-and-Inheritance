@@ -20,6 +20,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         {
             return base.formatForFile() + $";{Capacity};{RoomType};";
         }
+        // regular ToString() but converts the "K" from the text file into "Kitchen" so the ToString() prints Kitchen instead of "K" and vice versa
         public override string ToString()
         {
             if (RoomType == "K")

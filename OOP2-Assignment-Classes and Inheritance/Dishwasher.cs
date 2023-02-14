@@ -21,6 +21,8 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         {
             return base.formatForFile() + $";{Feature};{SoundRating};";
         }
+        // regular ToString() but converts the Qt, Qr, Qu, and M from the text file into Quietest, Quieter, Quiet, or Moderate so the ToString() prints Low or High instead of 18 or 24.
+
         public override string ToString()
         {
             if (SoundRating == "Qt")

@@ -20,6 +20,8 @@ namespace OOP2_Assignment_Classes_and_Inheritance
         {
             return base.formatForFile() + $";{Grade};{Battery};";
         }
+
+        // regular ToString() but converts the "18" or "24" from the text file into "Low" or "High" so the ToString() prints Low or High instead of 18 or 24.
         public override string ToString()
         {
             if (Battery == 18)

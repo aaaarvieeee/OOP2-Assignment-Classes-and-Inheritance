@@ -11,13 +11,17 @@ namespace OOP2_Assignment_Classes_and_Inheritance
 {
     internal class Management
     {
+        // All the appliance objects are stored in this list
         public static List<Appliance> applianceList = new List<Appliance>();
+
+        // Reads from the appliances.txt file and adds it to an array. Then splits each line at every instance of ";" in the array. 
         public static void ReadFromFile()
         {
             string path = "C:\\Users\\death\\source\\repos\\OOP2-Assignment-Classes-and-Inheritance\\OOP2-Assignment-Classes and Inheritance\\appliances.txt";
             string[] lines = File.ReadAllLines(path);
             foreach (string line in lines)
             {
+                //each field of each line is assigned a variable that is consistent with the Appliance class constructor.
                 string[] fields = line.Split(';');
                 int itemNumber = Convert.ToInt32(fields[0]);
                 string brand = fields[1];
@@ -27,6 +31,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
                 double price = Convert.ToDouble(fields[5]);
                 string itemNumbertoString = Convert.ToString(itemNumber);
                 string firstNumber = Convert.ToString(itemNumbertoString[0]);
+                //checks the first number of the item number to determine the class of object each appliance should fall under and calls their constructor and adds their other properties
                 if (firstNumber == "1")
                 {
                     int numberofDoors = Convert.ToInt32(fields[6]);
@@ -55,6 +60,11 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             }
         }
 
+        // Relies on user input, checks if the user input matches any of the item numbers in the applianceList. Uses a foreeach loop to read each
+        // object in the list and checks if the item number and user input match AND if it is available. If it does, it calls the Checkout() method.
+        // If it is not available but the numbers match, it tells the user that the appliance isn't available to be checked out.
+        // the loop also adds each input number into a list. Uses an if statement to check if the users input does NOT match any of the item numbers
+        // in the list and indicates that it doesn't match
         public static void Purchase()
         {
             Console.WriteLine("Enter the item number of an appliance:");
@@ -78,6 +88,7 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             }
         }
 
+        //takes a user input and checks if it is in the Brand attribute of each object. User input is case insensitive. Uses ToString to print the appliance when the conditions are met.
         public static void EnterBrand()
         {
             Console.WriteLine("Enter brand to search for: ");
@@ -111,9 +122,13 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             }
         }
 
+        //User decides which type of appliance they want to display by number. When the user inputs for Refrigerators, asks for the number of doors and prints the
+        //refrigerators that match the amount of doors. If Vacuums are chosen, it asks for the voltage of the vacuum and prints only the ones that have the same voltage.
+        // If microwaves are chosen, it asks where it will be installed and prints the ones with the same places. If dishwashers are chosen, it asks what the sound level is and
+        // prints only the ones with the same sound level indicated by the user.
         public static void DisplayByType()
         {
-            Console.WriteLine("1- Refrigerators\r\n2-Vacuums\r\n3-Microwaves\r\n4-Dishwashers\r\nEnter type of appliance:\r\n");
+            Console.WriteLine("1 - Refrigerators\r\n2 - Vacuums\r\n3 - Microwaves\r\n4 - Dishwashers\r\nEnter type of appliance:\r\n");
             string var = Console.ReadLine();
             if (var == "1")
             {
@@ -121,11 +136,11 @@ namespace OOP2_Assignment_Classes_and_Inheritance
                 string door = Console.ReadLine();
                 int door1 = int.Parse(door);
                 Console.WriteLine("Matching refrigerators: ");
-                foreach (Appliance x in applianceList)
+                foreach (Appliance applianceFridge in applianceList)
                 {
-                    if(x is Refrigerator)
+                    if(applianceFridge is Refrigerator)
                     {
-                        Refrigerator fridge = (Refrigerator)x;
+                        Refrigerator fridge = (Refrigerator)applianceFridge;
                         if (door1 == fridge.NumberOfDoors)
                         {
                             Console.WriteLine(fridge.ToString());              
@@ -139,11 +154,11 @@ namespace OOP2_Assignment_Classes_and_Inheritance
                 string volt = Console.ReadLine();
                 int volt1 = int.Parse(volt);
                 Console.WriteLine("Matching vacuums:");
-                foreach (Appliance b in applianceList)
+                foreach (Appliance applianceVacuum in applianceList)
                 {
-                    if(b is Vacuum)
+                    if(applianceVacuum is Vacuum)
                     {
-                        Vacuum vac = (Vacuum)b;
+                        Vacuum vac = (Vacuum)applianceVacuum;
                         if(volt1 == vac.Battery)
                         {
                             Console.WriteLine(vac.ToString());
@@ -156,11 +171,11 @@ namespace OOP2_Assignment_Classes_and_Inheritance
                 Console.WriteLine("Room Where the microwave will be installed: K (kitchen) or W (work site):");
                 string micro = Console.ReadLine();
                 Console.WriteLine("Matching microwave:");
-                foreach (Appliance c in applianceList)
+                foreach (Appliance applianceMicrowave in applianceList)
                 {
-                    if(c is Microwave)
+                    if(applianceMicrowave is Microwave)
                     {
-                        Microwave microwave = (Microwave)c;
+                        Microwave microwave = (Microwave)applianceMicrowave;
                         if(micro == microwave.RoomType)
                         {
                             Console.WriteLine(microwave.ToString());
@@ -173,11 +188,11 @@ namespace OOP2_Assignment_Classes_and_Inheritance
                 Console.WriteLine("Enter the sound rating of the dishwasher: Qt (Quietest), Qr (Quieter), Qu(Quiet) or M (Moderate):");
                 string dish = Console.ReadLine();
                 Console.WriteLine("Matching dishwasher: ");
-                foreach(Appliance d in applianceList)
+                foreach(Appliance applianceDishwasher in applianceList)
                 {
-                    if(d is Dishwasher)
+                    if(applianceDishwasher is Dishwasher)
                     {
-                        Dishwasher wash = (Dishwasher)d;
+                        Dishwasher wash = (Dishwasher)applianceDishwasher;
                         if(dish == wash.SoundRating)
                         {
                             Console.WriteLine(wash.ToString());
@@ -187,6 +202,8 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             }
         }
 
+        // Uses a for loop and uses user input as a condition for the amount of times it should loop. Uses the Random class and calls
+        // the .Next method to call a random index in the applianceList and prints the appliance at that random index.
         public static void RandomApplianceList() 
         {
             Console.WriteLine("Enter number of appliances:");
@@ -201,6 +218,8 @@ namespace OOP2_Assignment_Classes_and_Inheritance
             }
         }
 
+        // Calls the formatForFile() method for each type of object from the applianceList and adds it to a string list, each object is now a string and is formatted in the
+        // specified way. Then calls the File.WriteAllLines method to overwrite any changes made onto the existing appliances.txt file by writing the stringApplianceList into it.
         public static void WriteFormattedObjectsIntoTextFile()
         {
             List<string> stringApplianceList = new List<string>();
